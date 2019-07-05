@@ -10,14 +10,14 @@ public class Chocolatine {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer idChoco;
     private String nom;
     private Float temperature;
     private Float poids;
     private Float prix;
 
-    public Chocolatine(Integer id, String nom, Float temperature, Float poids, Float prix) {
-        this.id = id;
+    public Chocolatine(Integer idChoco, String nom, Float temperature, Float poids, Float prix) {
+        this.idChoco = idChoco;
         this.nom = nom;
         this.temperature = temperature;
         this.poids = poids;
@@ -42,12 +42,12 @@ public class Chocolatine {
         this.prix = prix;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdChoco() {
+        return idChoco;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdChoco(Integer idChoco) {
+        this.idChoco = idChoco;
     }
 
     public String getNom() {
@@ -77,8 +77,8 @@ public class Chocolatine {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Chocolatine (id=");
-        builder.append(id);
+        builder.append("Chocolatine (idChoco=");
+        builder.append(idChoco);
         builder.append(") : \n\tNom = ");
         builder.append(nom);
         builder.append(", \n\tTemperature = ");
