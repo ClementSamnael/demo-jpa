@@ -14,9 +14,9 @@ public class Chocolatine {
     private String nom;
     private Float temperature;
     private Float poids;
-    private Float prix;
+    private Integer prix;
 
-    public Chocolatine(Integer idChoco, String nom, Float temperature, Float poids, Float prix) {
+    public Chocolatine(Integer idChoco, String nom, Float temperature, Float poids, Integer prix) {
         this.idChoco = idChoco;
         this.nom = nom;
         this.temperature = temperature;
@@ -24,7 +24,7 @@ public class Chocolatine {
         this.prix = prix;
     }
 
-    public Chocolatine(String nom, Float temperature, Float poids, Float prix) {
+    public Chocolatine(String nom, Float temperature, Float poids, Integer prix) {
         this.nom = nom;
         this.temperature = temperature;
         this.poids = poids;
@@ -34,11 +34,11 @@ public class Chocolatine {
     public Chocolatine() {
     }
 
-    public Float getPrix() {
+    public Integer getPrix() {
         return prix;
     }
 
-    public void setPrix(Float prix) {
+    public void setPrix(Integer prix) {
         this.prix = prix;
     }
 

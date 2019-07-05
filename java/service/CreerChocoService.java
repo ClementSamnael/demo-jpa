@@ -29,7 +29,7 @@ public class CreerChocoService {
         System.out.println("Poids de la chocolatine : ");
         Float pds = scan.nextFloat();
         System.out.println("Prix de la chocolatine : ");
-        Float prx = scan.nextFloat();
+        Integer prx = scan.nextInt();
         
         Chocolatine choco = new Chocolatine(nom, tmprtr, pds, prx);
         em.persist(choco);

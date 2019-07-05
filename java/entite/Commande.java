@@ -1,7 +1,10 @@
 package entite;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,6 +12,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Commande {
@@ -22,6 +26,9 @@ public class Commande {
     @Column
     private Statut statut;
 
+    @OneToMany(mappedBy = "Commande", cascade = CascadeType.ALL)
+    private List<ChocoCom> contenu;
+
     public Commande(Integer idCom, String refCom, LocalDateTime dateCom, Statut statut) {
         this.idCom = idCom;
         this.refCom = refCom;
@@ -33,6 +40,7 @@ public class Commande {
         this.refCom = refCom;
         this.dateCom = dateCom;
         this.statut = statut;
+        contenu = new ArrayList<>();
     }
 
     public Commande() {
@@ -70,6 +78,16 @@ public class Commande {
         this.statut = statut;
     }
 
+    public List<ChocoCom> getContenu() {
+        return contenu;
+    }
+
+    public void setContenu(List<ChocoCom> contenu) {
+        this.contenu = contenu;
+    }
+
+   
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -81,8 +99,14 @@ public class Commande {
         builder.append(dateCom);
         builder.append(", statut=");
         builder.append(statut);
+        builder.append(", contenu=");
+        builder.append(contenu);
         builder.append("]");
         return builder.toString();
+    }
+
+    public void ajoutChocoCom(Chocolatine choco, Integer nb) {
+        ChocoCom chocoCom = new ChocoCom(choco, this, nb, choco.getPrix());
     }
 
 }
